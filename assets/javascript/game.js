@@ -16,14 +16,17 @@ generateWord();
 
 console.log(currentWord);
 
-//Display underscores for words
+//Display current progress for words
 
-var userProgress = " ";
-var currentProgress = "";
+	//userProgress to define progress before guess
+var userProgress = "";
 
+	//userProgress begins as the same number of underscores as letters in the word
 for (i=0;i<currentWord.length;i++) {
 	userProgress = userProgress + ("_")
 }
+	//currentProgress to define progress after guess
+var currentProgress = "";
 
 console.log(userProgress);
 
@@ -33,6 +36,7 @@ document.onkeyup = function () {
 
 	console.log(userGuess);
 
+	//guess correct is defaulted to false
 	var guessCorrect = false;
 
 
@@ -49,44 +53,27 @@ document.onkeyup = function () {
 
 	}
 
-	//If letter is correct
-	if (guessCorrect) {
-
-
-
-
-
-		//Check which letter is correct
-		for(i=0;i<currentWord.length;i++) {
-
-			//Only check empty fields
-			if(userProgress.charAt(i) == "_") {
-
-				//Check if guess equals current field
-				if (userGuess == currentWord.charAt(i)) {
-						
+	//function to update progress
+	function updateProgress() {
+		for (i=0;i<userProgress.length;i++) {
+			if (userProgress.charAt(i) == "_") {
+				if (currentWord.charAt(i) == userGuess) {
 					currentProgress = currentProgress + userGuess;
-					console.log(userGuess);
-
-				//If does not match replace with _
 				} else {
-
 					currentProgress = currentProgress + "_";
-
 				}
+			} else {
+				currentProgress = currentProgress + userProgress.charAt(i);
 			}
-		
-
-		else {
-
-			currentProgress = currentProgress + userProgress.charAt(i);
 		}
-
-		userProgress = currentProgress;
-	}
-
 	}	
 
+	//If letter is correct
+	if (guessCorrect) {
+		updateProgress();
+		userProgress = currentProgress;
+		currentProgress = "";
+	}
 	else {
 		//Print incorrect guess on screen
 		document.write(userGuess);
