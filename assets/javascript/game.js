@@ -31,6 +31,7 @@ var currentProgress = "";
 console.log(userProgress);
 
 //Capture letter guessed
+
 document.onkeyup = function () {
 	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
@@ -38,7 +39,6 @@ document.onkeyup = function () {
 
 	//guess correct is defaulted to false
 	var guessCorrect = false;
-
 
 	//Check if letter is correct
 	for (i=0;i<currentWord.length;i++) {
@@ -68,17 +68,18 @@ document.onkeyup = function () {
 		}
 	}	
 
-	//If letter is correct
+	//If letter is correct, call the updateProgress function
 	if (guessCorrect) {
 		updateProgress();
 		userProgress = currentProgress;
 		currentProgress = "";
-	}
-	else {
+	} else {
 		//Print incorrect guess on screen
-		document.write(userGuess);
+		var node = document.createElement("LI");
+		var textnode = document.createTextNode(userGuess);
+		node.appendChild(textnode);
+		document.getElementById("wrong").appendChild(node);
 	}
-	
 	
 	console.log(guessCorrect);
 	console.log("Current Progress: " + currentProgress)
