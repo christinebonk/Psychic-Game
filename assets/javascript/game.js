@@ -1,29 +1,33 @@
 
 
 //Set max number of guess
-
 var guessNumber = 15; 
 console.log("Guess Number: " + guessNumber);
 
 //Generate word
 var words = ["psycho", "halloween", "jaws", "seven", "alien", "scream"];
+var currentWord;
 
-var currentWord = words[Math.floor(Math.random()*words.length)];
+function generateWord() {
+	currentWord = words[Math.floor(Math.random()*words.length)];
+}
+
+generateWord();
 
 console.log(currentWord);
 
 //Display underscores for words
 
 var userProgress = " ";
+var currentProgress = "";
 
 for (i=0;i<currentWord.length;i++) {
-	userProgress = userProgress + ("_ ")
+	userProgress = userProgress + ("_")
 }
 
 console.log(userProgress);
 
-//Listen for letters typed
-
+//Capture letter guessed
 document.onkeyup = function () {
 	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
@@ -32,6 +36,7 @@ document.onkeyup = function () {
 	var guessCorrect = false;
 
 
+	//Check if letter is correct
 	for (i=0;i<currentWord.length;i++) {
 
 		if (userGuess == currentWord.charAt(i)) {
@@ -44,31 +49,40 @@ document.onkeyup = function () {
 
 	}
 
-	//Check if guess is correct
+	//If letter is correct
 	if (guessCorrect) {
 
+
+
+
+
 		//Check which letter is correct
-		for(i=0;i<userProgress.length;i++) {
+		for(i=0;i<currentWord.length;i++) {
 
 			//Only check empty fields
-			if(userProgress.charAt(i) == "_ ") {
+			if(userProgress.charAt(i) == "_") {
 
 				//Check if guess equals current field
 				if (userGuess == currentWord.charAt(i)) {
 						
-					userProgress.charAt(i) = userGuess;
+					currentProgress = currentProgress + userGuess;
+					console.log(userGuess);
 
 				//If does not match replace with _
 				} else {
 
-					userProgress.charAt(i) = "_ ";
+					currentProgress = currentProgress + "_";
 
 				}
 			}
 		
 
 		else {
+
+			currentProgress = currentProgress + userProgress.charAt(i);
 		}
+
+		userProgress = currentProgress;
 	}
 
 	}	
@@ -80,6 +94,7 @@ document.onkeyup = function () {
 	
 	
 	console.log(guessCorrect);
+	console.log("Current Progress: " + currentProgress)
 	console.log("User progress: " + userProgress);
 
 	//Reduce remaining guess
