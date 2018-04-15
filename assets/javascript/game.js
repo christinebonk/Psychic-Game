@@ -24,11 +24,14 @@ var userProgress = "";
 	//userProgress begins as the same number of underscores as letters in the word
 for (i=0;i<currentWord.length;i++) {
 	userProgress = userProgress + ("_")
+	document.getElementById("word").innerHTML = "<h2>" + userProgress + "</h2>";
 }
 	//currentProgress to define progress after guess
 var currentProgress = "";
 
 console.log(userProgress);
+
+
 
 //Capture letter guessed
 
@@ -68,17 +71,24 @@ document.onkeyup = function () {
 		}
 	}	
 
+	//function to display letters on screen
+	function displayGuess() {
+		var node = document.createElement("LI");
+		var textnode = document.createTextNode(userGuess.toUpperCase());
+		node.appendChild(textnode);
+		document.getElementById("wrong").appendChild(node);
+	}
+
 	//If letter is correct, call the updateProgress function
 	if (guessCorrect) {
 		updateProgress();
 		userProgress = currentProgress;
 		currentProgress = "";
+		displayGuess();
+		document.getElementById("word").innerHTML = userProgress;
+	
 	} else {
-		//Print incorrect guess on screen
-		var node = document.createElement("LI");
-		var textnode = document.createTextNode(userGuess);
-		node.appendChild(textnode);
-		document.getElementById("wrong").appendChild(node);
+		displayGuess();
 	}
 	
 	console.log(guessCorrect);
