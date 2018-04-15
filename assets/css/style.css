@@ -1,10 +1,12 @@
 #wrong {
-	height: 100px;
 	background: pink;
 }
 
 #word {
-	height: 100px;
 	background: indianred;
 }
 
+h2 {
+	letter-spacing: 20px;
+	font-size: 100px;
+}
