@@ -1,13 +1,13 @@
 
 
-//Set Variables
-var guessNumber = 15; 
-var currentWord;
-var userProgress = "";
-var currentProgress = "";
-var lettersGuessed = "";
-var repeat = false;
-var winCount = 0;
+//Define Variables
+var guessNumber = 13; //number of guesses user has remaining
+var currentWord; //current word user is trying to guess
+var userProgress = ""; //progres that display to user
+var currentProgress = ""; //progress during current turn
+var lettersGuessed = ""; //letters that have been guessed
+var repeat = false; //tracks whether letter has been repeated
+var winCount = 0; //tracks number of wins
 
 //Display Remaining Guesses
 function displayRemainingGuesses() {
@@ -28,7 +28,7 @@ function displayProgress() {
 	}
 }
 
-//Displays Wins
+//Displays Win Count
 function displayWins() {
 	document.getElementById("win-count").innerHTML = winCount;
 }
@@ -36,7 +36,7 @@ function displayWins() {
 //Play Game Function
 function playGame() {
 	//Reset variables
-	guessNumber = 15; 
+	guessNumber = 13; 
 	userProgress = "";
 	currentProgress = "";
 	lettersGuessed = "";
@@ -134,7 +134,6 @@ document.onkeyup = function () {
 		guessNumber -= 1;
 		document.getElementById("guess").innerHTML = "<h3>" + guessNumber + "</h3>";
 		var repeat = false; 
-		console.log(userProgress);
 
 
 		//checks for win
@@ -142,19 +141,13 @@ document.onkeyup = function () {
 			document.getElementById("win").innerHTML = "Hello";
 			winCount = winCount + 1;
 			document.getElementById("win-count").innerHTML = winCount;
+			document.getElementById("wrong").innerHTML = "";
 			playGame(); 
 		} else {
 
 		}
 
+	}
 }
-}
 
- 
-
-//When all letters guessed increase wins by 1, generate new word, and play song
-
-//When all turns used display the word, generate new word and play song
-
-//If word has been guessed, don't guess again
 

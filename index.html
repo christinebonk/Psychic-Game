@@ -3,17 +3,82 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Horror Hangman</title>
-	
-	<link rel="stylesheet" href="assets/css/style.css">
+		<!--Reset CSS-->
+		<link rel="stylesheet" href="assets/css/reset.css">
+		<!-- Latest compiled and minified CSS -->
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<!--My CSS-->
+		<link href="https://fonts.googleapis.com/css?family=Stylish" rel="stylesheet">
+		<link rel="stylesheet" href="assets/css/style.css">
+
+
 </head>
 <body>
-	
-	<div id="word"></div>
-	<ul id="wrong"></ul>
-	<div id="guess"></div>
-	<div id="win"></div>
-	<div id="win-count"></div>
-	
+	<!--Header Begins-->
+	<header>
+		<h1>Horror Hangman</h1>
+	</header>
+	<!--Main Section Begins-->
+	<main>
+		<figure>
+			<img src="assets/images/ghost.png" alt="haunting man">
+		</figure>
+	<!--Main Container-->
+	<div class="container">
+
+		<!--Row: Game-->
+		<div class="row">
+			<!--Column: Hangman and Letters Guessed-->
+			<div class="col-md-4">
+				<!--Hangman-->
+				<div class="row">
+					<div class="hangman">
+						<div class="part head"></div>
+						<div class="part body"></div>
+						<div class="part left-arm"></div>
+						<div class="part bottom-left-arm"></div>
+						<div class="part right-arm"></div>
+						<div class="part bottom-right-arm"></div>
+						<div class="part left-leg"></div>
+						<div class="part bottom-left-leg"></div>
+						<div class="part right-leg"></div>
+						<div class="part bottom-right-leg"></div>
+						<div class="part left-eye"></div>
+						<div class="part right-eye"></div>
+						<div class="part mouth"></div>
+
+					</div>
+				</div>
+				<!--Wrong letters guessed placed here-->
+				<div class="row">
+					<h3>Letters Guessed</h3>
+					<ul id="wrong"></ul>
+				</div>
+			</div>
+
+			<!--Column: Word and Progress-->
+			<div class="col-md-8">
+				<div class="row">
+					<!--Word placed here-->
+					<div id="word"></div>
+				</div>
+				<div class="row">
+					<!--Remaining Guesses-->
+					<div id="guess"></div>
+					<!--Win Count-->
+					<div id="win-count"></div>
+				</div>
+			</div>
+		</div>
+
+		<!--Win Message-->
+		<div id="win"></div>
+		
+	</div>
+
+	</main>
+
+	<!--Link to Javascript-->
 	<script src="assets/javascript/game.js"></script>
 </body>
 </html>
