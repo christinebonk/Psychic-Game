@@ -61,7 +61,7 @@ div.hangman {
 	display: none;
 }
 
-.head {
+#head {
 	height: 70px;
 	width: 70px;
 	border-radius: 50%;
@@ -70,7 +70,7 @@ div.hangman {
 	right: 50%;
 }
 
-.body {
+#body {
 	height: 100px;
 	width: 0%;
 	right: 60%;
@@ -78,7 +78,7 @@ div.hangman {
 	top: 70px;
 }
 
-.left-arm {
+#left-arm {
 	height: 70px;
 	width: 0%;
 	right: 60%;
@@ -88,7 +88,7 @@ div.hangman {
 	transform-origin: top left;
 }
 
-.bottom-left-arm {
+#bottom-left-arm {
 	height: 50px;
 	width: 0%;
 	right: 75%;
@@ -98,7 +98,7 @@ div.hangman {
 	transform-origin: bottom right;
 }
 
-.right-arm {
+#right-arm {
 	height: 70px;
 	width: 0%;
 	right: 60%;
@@ -108,7 +108,7 @@ div.hangman {
 	transform-origin: top left;
 }
 
-.bottom-right-arm {
+#bottom-right-arm {
 	height: 50px;
 	width: 0%;
 	right: 45%;
@@ -118,7 +118,7 @@ div.hangman {
 	transform-origin: bottom right;
 }
 
-.right-leg {
+#right-leg {
 	height: 60px;
 	width: 0%;
 	right: 60%;
@@ -128,7 +128,7 @@ div.hangman {
 	transform-origin: top left;
 }
 
-.left-leg {
+#left-leg {
 	height: 60px;
 	width: 0%;
 	right: 60%;
@@ -138,7 +138,7 @@ div.hangman {
 	transform-origin: top left;
 }
 
-.left-eye {
+#left-eye {
 	height: 10px;
 	width: 10px;
 	border-radius: 50%;
@@ -146,7 +146,7 @@ div.hangman {
 	top: 20px;
 }
 
-.right-eye {
+#right-eye {
 	height: 10px;
 	width: 10px;
 	border-radius: 50%;
@@ -154,7 +154,7 @@ div.hangman {
 	top: 20px;
 }
 
-.bottom-right-leg {
+#bottom-right-leg {
 	height: 50px;
 	width: 0%;
 	right: 48%;
@@ -164,7 +164,7 @@ div.hangman {
 	transform-origin: top left;
 }
 
-.bottom-left-leg {
+#bottom-left-leg {
 	height: 50px;
 	width: 0%;
 	right: 72%;
@@ -174,7 +174,7 @@ div.hangman {
 	transform-origin: top left;
 }
 
-.mouth {
+#mouth {
 	width: 30px;
 	border-radius: 10%;
 	left: 100px;

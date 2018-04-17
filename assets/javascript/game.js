@@ -61,9 +61,7 @@ document.onkeyup = function () {
 		for (i=0;i<lettersGuessed.length;i++) {
 			if (lettersGuessed.charAt(i) == userGuess) {
 				repeat = true;
-				console.log("repeat" + repeat);
 			} else {
-				console.log("repeat" + repeat);
 			}
 		}
 	}
@@ -113,10 +111,53 @@ document.onkeyup = function () {
 		document.getElementById("wrong").appendChild(node);
 	}
 
+	//Function to add body part to hangman
+	function hangman() {
+
+		if(guessNumber == 12) {
+			var hang = document.getElementById("head");
+    		hang.classList.add("show");
+		} if(guessNumber == 11) {
+			var hang = document.getElementById("body");
+    		hang.classList.add("show");
+		} if(guessNumber == 10) {
+			var hang = document.getElementById("left-arm");
+    		hang.classList.add("show");
+		} if(guessNumber == 9) {
+			var hang = document.getElementById("right-arm");
+    		hang.classList.add("show");
+		} if(guessNumber == 8) {
+			var hang = document.getElementById("bottom-left-arm");
+    		hang.classList.add("show");
+		} if(guessNumber == 7) {
+			var hang = document.getElementById("bottom-right-arm");
+    		hang.classList.add("show");
+		} if(guessNumber == 6) {
+			var hang = document.getElementById("left-leg");
+    		hang.classList.add("show");
+		} if(guessNumber == 5) {
+			var hang = document.getElementById("right-leg");
+    		hang.classList.add("show");
+		} if(guessNumber == 4) {
+			var hang = document.getElementById("bottom-left-leg");
+    		hang.classList.add("show");
+		} if(guessNumber == 3) {
+			var hang = document.getElementById("bottom-right-leg");
+    		hang.classList.add("show");
+		} if(guessNumber == 2) {
+			var hang = document.getElementById("left-eye");
+    		hang.classList.add("show");
+		} if(guessNumber == 1) {
+			var hang = document.getElementById("right-eye");
+    		hang.classList.add("show");
+		} if(guessNumber == 0) {
+			var hang = document.getElementById("mouth");
+    		hang.classList.add("show");
+		}
+    }
 	//Check to see if letter has been guessed
 	if (repeat) {
-
-
+		//No action if letter has already been guessed
 	} else {
 		//Check to see if letter is correct
 		if (guessCorrect) {
@@ -126,12 +167,13 @@ document.onkeyup = function () {
 			document.getElementById("word").innerHTML = "<h2>" + userProgress + "</h2>";
 		
 		} else {
+			guessNumber -= 1;
 			displayGuess();
+			hangman();
 		}
 		
 		
 		//Reduce remaining guess
-		guessNumber -= 1;
 		document.getElementById("guess").innerHTML = "<h3>" + guessNumber + "</h3>";
 		var repeat = false; 
 
