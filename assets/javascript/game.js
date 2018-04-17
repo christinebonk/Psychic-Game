@@ -9,7 +9,7 @@ var lettersGuessed = ""; //letters that have been guessed
 var repeat = false; //tracks whether letter has been repeated
 var winCount = 0; //tracks number of wins
 
-//Display Remaining Guesses
+//Display Remaining Incorrect Guesses
 function displayRemainingGuesses() {
 	document.getElementById("guess").innerHTML = "<h3>" + guessNumber + "</h3>";
 }
@@ -115,34 +115,34 @@ document.onkeyup = function () {
 	function hangman() {
 
 		if(guessNumber == 12) {
-			var hang = document.getElementById("head");
+			var hang = document.getElementById("pole");
     		hang.classList.add("show");
 		} if(guessNumber == 11) {
-			var hang = document.getElementById("body");
+			var hang = document.getElementById("pole2");
     		hang.classList.add("show");
 		} if(guessNumber == 10) {
-			var hang = document.getElementById("left-arm");
+			var hang = document.getElementById("string");
     		hang.classList.add("show");
 		} if(guessNumber == 9) {
-			var hang = document.getElementById("right-arm");
+			var hang = document.getElementById("stand");
     		hang.classList.add("show");
 		} if(guessNumber == 8) {
-			var hang = document.getElementById("bottom-left-arm");
+			var hang = document.getElementById("head");
     		hang.classList.add("show");
 		} if(guessNumber == 7) {
-			var hang = document.getElementById("bottom-right-arm");
+			var hang = document.getElementById("body");
     		hang.classList.add("show");
 		} if(guessNumber == 6) {
-			var hang = document.getElementById("left-leg");
+			var hang = document.getElementById("right-arm");
     		hang.classList.add("show");
 		} if(guessNumber == 5) {
-			var hang = document.getElementById("right-leg");
+			var hang = document.getElementById("left-arm");
     		hang.classList.add("show");
 		} if(guessNumber == 4) {
-			var hang = document.getElementById("bottom-left-leg");
+			var hang = document.getElementById("left-leg");
     		hang.classList.add("show");
 		} if(guessNumber == 3) {
-			var hang = document.getElementById("bottom-right-leg");
+			var hang = document.getElementById("right-leg");
     		hang.classList.add("show");
 		} if(guessNumber == 2) {
 			var hang = document.getElementById("left-eye");
@@ -155,6 +155,50 @@ document.onkeyup = function () {
     		hang.classList.add("show");
 		}
     }
+
+    //Reset Hangman
+
+    function resetHangman() {
+				var reset = document.getElementById("pole");
+    			reset.classList.remove("show");
+
+    			var reset = document.getElementById("pole2");
+    			reset.classList.remove("show");
+
+    			var reset = document.getElementById("head");
+    			reset.classList.remove("show");
+
+    			var reset = document.getElementById("string");
+    			reset.classList.remove("show");
+
+    			var reset = document.getElementById("stand");
+    			reset.classList.remove("show");
+
+    			var reset = document.getElementById("body");
+    			reset.classList.remove("show");
+
+    			var reset = document.getElementById("left-arm");
+    			reset.classList.remove("show");
+
+    			var reset = document.getElementById("right-arm");
+    			reset.classList.remove("show");
+
+    			var reset = document.getElementById("left-leg");
+    			reset.classList.remove("show");
+
+    			var reset = document.getElementById("right-leg");
+    			reset.classList.remove("show");
+
+    			var reset = document.getElementById("left-eye");
+    			reset.classList.remove("show");
+
+    			var reset = document.getElementById("right-eye");
+    			reset.classList.remove("show");
+
+    			var reset = document.getElementById("mouth");
+    			reset.classList.remove("show");
+    		}
+
 	//Check to see if letter has been guessed
 	if (repeat) {
 		//No action if letter has already been guessed
@@ -172,11 +216,9 @@ document.onkeyup = function () {
 			hangman();
 		}
 		
-		
 		//Reduce remaining guess
 		document.getElementById("guess").innerHTML = "<h3>" + guessNumber + "</h3>";
 		var repeat = false; 
-
 
 		//checks for win
 		if (currentWord == userProgress) {
@@ -184,9 +226,17 @@ document.onkeyup = function () {
 			winCount = winCount + 1;
 			document.getElementById("win-count").innerHTML = winCount;
 			document.getElementById("wrong").innerHTML = "";
-			playGame(); 
-		} else {
 
+			//reset hangman
+			resetHangman();
+			//play game
+			playGame(); 
+
+		}if (guessNumber == 0) {
+			document.getElementById("win").innerHTML = "Loser";
+			
+		} else {
+			//Game keeps playing
 		}
 
 	}
