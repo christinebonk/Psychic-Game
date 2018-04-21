@@ -2,9 +2,9 @@
 body {
 	background: black;
 	font-family: 'Stylish', sans-serif;
-
-
 }
+
+/*Header*/
 
 header {
 	text-align: center;
@@ -15,6 +15,7 @@ h1 {
 	font-family: 'Stylish', sans-serif;
 	font-size: 75px;
 }
+
 
 
 /*Score*/
@@ -107,6 +108,7 @@ div.hangman {
 	top: 0;
 	left: 20px;
 	position: absolute;
+	display: block;
 }
 
 #right-arm {
@@ -126,6 +128,7 @@ div.hangman {
 	position: absolute;
 	top: -50px;
 	transform: rotate(90deg);
+	display: block;
 }
 
 #right-leg {
@@ -171,6 +174,7 @@ div.hangman {
 	position: absolute;
 	top: 225px;
 	transform: rotate(90deg);
+	display: block;
 }
 
 #string {
@@ -179,6 +183,7 @@ div.hangman {
 	right: 60%;
 	position: absolute;
 	top: 0px;
+	display: block;
 }
 
 #mouth {

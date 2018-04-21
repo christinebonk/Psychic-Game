@@ -1,6 +1,6 @@
 
 //Define Variables
-var guessNumber = 13; //number of guesses user has remaining
+var guessNumber = 9; //number of guesses user has remaining
 var currentWord; //current word user is trying to guess
 var userProgress = ""; //progres that display to user
 var currentProgress = ""; //progress during current turn
@@ -35,7 +35,7 @@ function displayWins() {
 //Play Game Function
 function playGame() {
 	//Reset variables
-	guessNumber = 13; 
+	guessNumber = 9; 
 	userProgress = "";
 	currentProgress = "";
 	lettersGuessed = "";
@@ -112,20 +112,7 @@ document.onkeyup = function () {
 
 	//Function to add body part to hangman
 	function hangman() {
-
-		if(guessNumber == 12) {
-			var hang = document.getElementById("pole");
-    		hang.classList.add("show");
-		} if(guessNumber == 11) {
-			var hang = document.getElementById("pole2");
-    		hang.classList.add("show");
-		} if(guessNumber == 10) {
-			var hang = document.getElementById("string");
-    		hang.classList.add("show");
-		} if(guessNumber == 9) {
-			var hang = document.getElementById("stand");
-    		hang.classList.add("show");
-		} if(guessNumber == 8) {
+		if(guessNumber == 8) {
 			var hang = document.getElementById("head");
     		hang.classList.add("show");
 		} if(guessNumber == 7) {
@@ -158,19 +145,8 @@ document.onkeyup = function () {
     //Reset Hangman
 
     function resetHangman() {
-				var reset = document.getElementById("pole");
-    			reset.classList.remove("show");
-
-    			var reset = document.getElementById("pole2");
-    			reset.classList.remove("show");
-
+			
     			var reset = document.getElementById("head");
-    			reset.classList.remove("show");
-
-    			var reset = document.getElementById("string");
-    			reset.classList.remove("show");
-
-    			var reset = document.getElementById("stand");
     			reset.classList.remove("show");
 
     			var reset = document.getElementById("body");
