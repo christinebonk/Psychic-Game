@@ -17,6 +17,7 @@
 	<!--Header Begins-->
 	<header>
 		<h1>Horror Hangman</h1>
+		<div id="win"></div>
 	</header>
 	<!--Main Section Begins-->
 	<main>
@@ -28,15 +29,17 @@
 
 		<!--Row: Game-->
 		<div class="row">
+
 			<!--Column: Hangman and Letters Guessed-->
 			<div class="col-md-4">
-				<!--Hangman-->
+
+				<!--Row: Hangman-->
 				<div class="row">
 					<div class="hangman">
 						<div id="head" class="part"></div>
 						<div id="body" class="part"></div>
 						<div id="left-arm" class="part"></div>
-						<div id="pole" class="part"></div>
+						<div id="pole" class="show"></div>
 						<div id="right-arm" class="part"></div>
 						<div id="pole2" class="part"></div>
 						<div id="left-leg" class="part"></div>
@@ -50,30 +53,38 @@
 
 					</div>
 				</div>
-				<!--Wrong letters guessed placed here-->
+
+				<!--Row: Wrong letters guessed placed here-->
 				<div class="row">
 					<h3>Letters Guessed</h3>
 					<ul id="wrong"></ul>
 				</div>
-			</div>
 
+			</div>
+		
 			<!--Column: Word and Progress-->
 			<div class="col-md-8">
 				<div class="row">
 					<!--Word placed here-->
 					<div id="word"></div>
 				</div>
-				<div class="row">
+				<div class="row score">
 					<!--Remaining Guesses-->
-					<div id="guess"></div>
+					<div class="guess-box score-box">
+						<h3>Remaining Guesses</h3>
+						<div id="guess"></div>
+					</div>
 					<!--Win Count-->
-					<div id="win-count"></div>
+					<div class="win-box score-box">
+						<h3>Wins</h3>
+						<div id="win-count"></div>
+					</div>
 				</div>
 			</div>
 		</div>
 
 		<!--Win Message-->
-		<div id="win"></div>
+		
 		
 	</div>
 

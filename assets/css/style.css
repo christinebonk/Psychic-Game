@@ -6,19 +6,31 @@ body {
 
 }
 
+header {
+	text-align: center;
+}
+
 h1 {
 	text-align: center;
 	font-family: 'Stylish', sans-serif;
 	font-size: 75px;
 }
 
-div {
-	border: 1px solid black;
+
+/*Score*/
+div.score {
+	display: flex;
+}
+
+div.score-box {
+	width: 50%;
 }
 
 
 
+
 #wrong {
+
 }
 
 #word {

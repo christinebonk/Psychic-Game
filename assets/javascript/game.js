@@ -1,5 +1,4 @@
 
-
 //Define Variables
 var guessNumber = 13; //number of guesses user has remaining
 var currentWord; //current word user is trying to guess
@@ -16,7 +15,7 @@ function displayRemainingGuesses() {
 
 //Generates New Word
 function generateWord() {
-	var words = ["psycho", "halloween", "jaws", "seven", "alien", "scream"];
+	var words = ["psycho", "halloween", "jaws", "seven", "alien", "scream", "frankenstein", "dracula", "zombieland","it", "anaconda", "boogeyman", "carrie", "cloverfield", "misery", "hannibal", "insidious", "orphan", "ouija"];
 	currentWord = words[Math.floor(Math.random()*words.length)];
 }
 
@@ -222,7 +221,7 @@ document.onkeyup = function () {
 
 		//checks for win
 		if (currentWord == userProgress) {
-			document.getElementById("win").innerHTML = "Hello";
+			document.getElementById("win").innerHTML = "<h3>You got it: " + currentWord + "!</h3>";
 			winCount = winCount + 1;
 			document.getElementById("win-count").innerHTML = winCount;
 			document.getElementById("wrong").innerHTML = "";
@@ -241,5 +240,3 @@ document.onkeyup = function () {
 
 	}
 }
-
-
