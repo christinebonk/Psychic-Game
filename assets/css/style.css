@@ -59,7 +59,7 @@ div.score-box {
 
 h2 {
 	letter-spacing: 20px;
-	font-size: 100px;
+	font-size: 80px;
 }
 
 
@@ -81,6 +81,25 @@ div.hang-box {
 	display: flex;
 	justify-content: center;
 }
+
+div.swing {
+	animation: swing 5s infinite forwards ease-in-out;
+}
+
+@keyframes swing {
+	0% {
+		transform: rotate(2deg);
+	}
+
+	50% {
+		transform: rotate(-2deg);
+	}
+
+	100% {
+		transform: rotate(2deg);
+	}
+}
+
 div.hangman {
 	height: 300px;
 	width: 300px;
@@ -175,19 +194,19 @@ div.hangman {
 }
 
 #left-eye {
-	height: 10px;
-	width: 10px;
+	height: 5px;
+	width: 5px;
 	border-radius: 50%;
-	left: 40%;
-	top: 50px;
+	left: 41%;
+	top: 52px;
 }
 
 #right-eye {
-	height: 10px;
-	width: 10px;
+	height: 5px;
+	width: 5px;
 	border-radius: 50%;
-	left: 33%;
-	top: 50px;
+	left: 34%;
+	top: 52px;
 }
 
 #stand {
@@ -210,10 +229,11 @@ div.hangman {
 }
 
 #mouth {
-	width: 30px;
+	width: 20px;
 	border-radius: 10%;
-	left: 100px;
-	top: 80px;
+	left: 105px;
+	top: 78px;
+	border: 1px solid #888;
 
 }
 
