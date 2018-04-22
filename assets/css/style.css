@@ -188,7 +188,7 @@ div.hangman {
 	width: 0%;
 	right: 60%;
 	position: absolute;
-	top: 200px;
+	top: 198px;
 	transform: rotate(40deg);
 	transform-origin: top left;
 }
