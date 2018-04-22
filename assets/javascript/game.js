@@ -120,9 +120,6 @@ playGame();
 document.onkeyup = function(event) {
 	//The key is captured as the user's guess
 	userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-
-//Game Play
-	
 	//Check if letter has been guessed
 	for (i=0;i<lettersGuessed.length;i++) {
 			if (lettersGuessed.charAt(i) == userGuess) {
@@ -130,23 +127,18 @@ document.onkeyup = function(event) {
 			} else {
 			}
 		}
-
 	//Check if the guess is correct
 	var guessCorrect = false;
-
 	for (i=0;i<currentWord.length;i++) {
 		if (userGuess == currentWord.charAt(i)) {
 			guessCorrect = true;
 		}
 	}
-
 	//If letter has been guessed
 	if (repeat) {
-		console.log(repeat);
 		//No action if letter has already been guessed
 	//If letter has not been guessed
 	} else {
-		console.log(repeat);
 		//The letters guessed is updated
 		lettersGuessed = lettersGuessed + userGuess;
 		//If letter is correct, update the progress
@@ -168,20 +160,16 @@ document.onkeyup = function(event) {
 			winCount = winCount + 1;
 			hangmanGame.displayWins();
 			document.getElementById("wrong").innerHTML = "";
-
 			//reset hangman
 			hangmanGame.resetHangman();
 			//play game
 			playGame(); 
-
 		} else if (guessNumber == 0) {
 			document.getElementById("you-lose").classList.add("lose-show");
-
 		} else {
 			//reset repeat value and cnotinue playing
 			var repeat = false; 
 		}
-
 	}
 }
 
@@ -196,6 +184,7 @@ function startAgain() {
 	var remove = document.getElementById("you-lose");
 		remove.classList.remove("lose-show");
 	document.getElementById("wrong").innerHTML = "";
+	document.getElementById("win").innerHTML = "<h3>Press any key to get started!</h3>";
 
 }
 
