@@ -119,34 +119,29 @@ playGame();
 //When a key is pressed
 document.onkeyup = function(event) {
 	//The key is captured as the user's guess
-	userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-
-//Game Play
-	
+	userGuess = String.fromCharCode(event.keyCode).toLowerCase();	
 	//Check if letter has been guessed
 	for (i=0;i<lettersGuessed.length;i++) {
-			if (lettersGuessed.charAt(i) == userGuess) {
-				repeat = true;
-			} else {
-			}
+		if (lettersGuessed.charAt(i) == userGuess) {
+			repeat = true;
+		} else {
 		}
-
+	};
 	//Check if the guess is correct
-	var guessCorrect = false;
-
 	for (i=0;i<currentWord.length;i++) {
 		if (userGuess == currentWord.charAt(i)) {
 			guessCorrect = true;
 		}
-	}
-
+		else {
+		}
+	};
 	//If letter has been guessed
 	if (repeat) {
-		console.log(repeat);
-		//No action if letter has already been guessed
+		console.log("Response: " + repeat)
+	//No action if letter has already been guessed
 	//If letter has not been guessed
 	} else {
-		console.log(repeat);
+		console.log("Response:1 " + repeat)
 		//The letters guessed is updated
 		lettersGuessed = lettersGuessed + userGuess;
 		//If letter is correct, update the progress
@@ -162,30 +157,25 @@ document.onkeyup = function(event) {
 			hangmanGame.hangman();
 			document.getElementById("guess").innerHTML = "<h3>" + guessNumber + "</h3>";
 		}
-		//checks for win
+		//Checks for win
 		if (currentWord == userProgress) {
 			document.getElementById("win").innerHTML = "<h3>You got it: " + currentWord + "!</h3>";
 			winCount = winCount + 1;
 			hangmanGame.displayWins();
 			document.getElementById("wrong").innerHTML = "";
-
 			//reset hangman
-			hangmanGame.resetHangman();
+			resetHangman();
 			//play game
 			playGame(); 
-
 		} else if (guessNumber == 0) {
 			document.getElementById("you-lose").classList.add("lose-show");
-
 		} else {
 			//reset repeat value and cnotinue playing
 			var repeat = false; 
 		}
-
 	}
-}
 
-
+		}
 	
 
 
