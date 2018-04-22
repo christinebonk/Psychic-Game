@@ -7,6 +7,7 @@ var currentProgress = ""; //progress during current turn
 var lettersGuessed = ""; //letters that have been guessed
 var repeat = false; //tracks whether letter has been repeated
 var winCount = 0; //tracks number of wins
+var userGuess
 
 //Display Remaining Incorrect Guesses
 function displayRemainingGuesses() {
@@ -45,20 +46,9 @@ function playGame() {
 	generateWord();
 	displayProgress();
 	displayWins();
-	var reset = document.getElementById("you-lose");
-    			reset.classList.remove("show");
 }
 
-//Call Play Game when documented loaded
-playGame();
-
-//When a key is pressed
-document.onkeyup = function () {
-	//The key is captured as the user's guess
-	var userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-
-	//Function to check to see if the letter has been guessed
-	function checkIfGuessed() { 
+function checkIfGuessed() { 
 		for (i=0;i<lettersGuessed.length;i++) {
 			if (lettersGuessed.charAt(i) == userGuess) {
 				repeat = true;
@@ -66,6 +56,17 @@ document.onkeyup = function () {
 			}
 		}
 	}
+
+//Call Play Game when documented loaded
+playGame();
+
+//When a key is pressed
+document.onkeyup = function(event) {
+	//The key is captured as the user's guess
+	userGuess = String.fromCharCode(event.keyCode).toLowerCase();
+
+	//Function to check to see if the letter has been guessed
+	
 
 	//Function that updates the progress
 	function updateProgress() {
@@ -125,33 +126,33 @@ document.onkeyup = function () {
     //Function to Reset Hangman
     function resetHangman() {
 			
-    			var reset = document.getElementById("head");
-    			reset.classList.remove("show");
+		var reset = document.getElementById("head");
+		reset.classList.remove("show");
 
-    			var reset = document.getElementById("body");
-    			reset.classList.remove("show");
+		var reset = document.getElementById("body");
+		reset.classList.remove("show");
 
-    			var reset = document.getElementById("left-arm");
-    			reset.classList.remove("show");
+		var reset = document.getElementById("left-arm");
+		reset.classList.remove("show");
 
-    			var reset = document.getElementById("right-arm");
-    			reset.classList.remove("show");
+		var reset = document.getElementById("right-arm");
+		reset.classList.remove("show");
 
-    			var reset = document.getElementById("left-leg");
-    			reset.classList.remove("show");
+		var reset = document.getElementById("left-leg");
+		reset.classList.remove("show");
 
-    			var reset = document.getElementById("right-leg");
-    			reset.classList.remove("show");
+		var reset = document.getElementById("right-leg");
+		reset.classList.remove("show");
 
-    			var reset = document.getElementById("left-eye");
-    			reset.classList.remove("show");
+		var reset = document.getElementById("left-eye");
+		reset.classList.remove("show");
 
-    			var reset = document.getElementById("right-eye");
-    			reset.classList.remove("show");
+		var reset = document.getElementById("right-eye");
+		reset.classList.remove("show");
 
-    			var reset = document.getElementById("mouth");
-    			reset.classList.remove("show");
-    		}
+		var reset = document.getElementById("mouth");
+		reset.classList.remove("show");
+	}
 
 
 
@@ -202,7 +203,7 @@ document.onkeyup = function () {
 			playGame(); 
 
 		} else if (guessNumber == 0) {
-			document.getElementById("you-lose").classList.add("show");
+			document.getElementById("you-lose").classList.add("lose-show");
 
 		} else {
 			//reset repeat value and cnotinue playing

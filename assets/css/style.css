@@ -330,27 +330,22 @@ div.hangman {
 }
 
 	@keyframes lose {
-	25% {
+	0% {
 		opacity: 0;
 	}
 
-	50% {
-		opacity: 0.5;
-	}
-
-	75% {
+	100% {
 		opacity: 1;
 	}
 }
 
-.lose-screen {
-	display: block;
-}
+
 
 #you-lose {
 	height: 100vh;
 	background: red;
 	z-index: 100;
+	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	position: fixed;
@@ -358,11 +353,19 @@ div.hangman {
 	bottom: 0;
 	left: 0;
 	right: 0;
+}
+
+.you-lose {
 	display: none;
 }
 
 #you-lose p {
 	color: black;
 	font-size: 100px;
+}
+
+.lose-show {
+	display: flex;
+	animation: lose linear 1s;
 }
 
