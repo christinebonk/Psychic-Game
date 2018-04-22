@@ -14,6 +14,10 @@
 
 </head>
 <body>
+	<div id="you-lose">
+		<p>You Lose...</p>
+		<button onclick="playGame()" id="replay" class="btn btn-warning">Play Again</button>
+	</div>
 	<!--Header Begins-->
 	<header>
 		<h1>Horror Hangman</h1>
@@ -21,9 +25,16 @@
 	</header>
 	<!--Main Section Begins-->
 	<main>
-		<figure>
-			<img src="assets/images/ghost.png" alt="haunting man">
-		</figure>
+		<img id="eyes1" class="eyes eyes1" src='assets/images/eyes.jpg'>
+		<img id="eyes2" class="eyes eyes2" src='assets/images/eyes.jpg'>
+		<img id="eyes3" class="eyes eyes3" src='assets/images/eyes.jpg'>
+		<img id="eyes4" class="eyes eyes4" src='assets/images/eyes.jpg'>
+		<img id="eyes5" class="eyes eyes5" src='assets/images/eyes.jpg'>
+		<img id="eyes6" class="eyes eyes6" src='assets/images/eyes.jpg'>
+		<img id="eyes7" class="eyes eyes7" src='assets/images/eyes.jpg'>
+		<img id="eyes8" class="eyes eyes8" src='assets/images/eyes.jpg'>
+		<img id="eyes9" class="eyes eyes9" src='assets/images/eyes.jpg'>
+		<img id="eyes10" class="eyes eyes10" src='assets/images/eyes.jpg'>
 	<!--Main Container-->
 	<div class="container">
 
@@ -31,10 +42,10 @@
 		<div class="row">
 
 			<!--Column: Hangman and Letters Guessed-->
-			<div class="col-md-4">
+			<div class="col-md-4 col-sm-6 col-xs-12">
 
 				<!--Row: Hangman-->
-				<div class="row">
+				<div class="row hang-box">
 					<div class="hangman">
 						<div id="head" class="part"></div>
 						<div id="body" class="part"></div>
@@ -63,7 +74,7 @@
 			</div>
 		
 			<!--Column: Word and Progress-->
-			<div class="col-md-8">
+			<div class="col-md-8 col-sm-6 col-xs-12">
 				<div class="row">
 					<!--Word placed here-->
 					<div id="word"></div>
@@ -71,7 +82,7 @@
 				<div class="row score">
 					<!--Remaining Guesses-->
 					<div class="guess-box score-box">
-						<h3>Remaining Guesses</h3>
+						<h3>Guesses</h3>
 						<div id="guess"></div>
 					</div>
 					<!--Win Count-->

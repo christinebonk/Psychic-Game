@@ -29,7 +29,7 @@ function displayProgress() {
 
 //Displays Win Count
 function displayWins() {
-	document.getElementById("win-count").innerHTML = winCount;
+	document.getElementById("win-count").innerHTML = "<h3>" + winCount + "<h3>";
 }
 
 //Play Game Function
@@ -45,6 +45,8 @@ function playGame() {
 	generateWord();
 	displayProgress();
 	displayWins();
+	var reset = document.getElementById("you-lose");
+    			reset.classList.remove("show");
 }
 
 //Call Play Game when documented loaded
@@ -199,7 +201,7 @@ document.onkeyup = function () {
 		if (currentWord == userProgress) {
 			document.getElementById("win").innerHTML = "<h3>You got it: " + currentWord + "!</h3>";
 			winCount = winCount + 1;
-			document.getElementById("win-count").innerHTML = winCount;
+			displayWins();
 			document.getElementById("wrong").innerHTML = "";
 
 			//reset hangman
@@ -208,11 +210,13 @@ document.onkeyup = function () {
 			playGame(); 
 
 		}if (guessNumber == 0) {
-			document.getElementById("win").innerHTML = "Loser";
-			
+			document.getElementById("you-lose").classList.add("show");
+
 		} else {
 			//Game keeps playing
 		}
 
 	}
 }
+
+
