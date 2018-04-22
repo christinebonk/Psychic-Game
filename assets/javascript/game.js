@@ -33,6 +33,44 @@ function displayWins() {
 	document.getElementById("win-count").innerHTML = "<h3>" + winCount + "<h3>";
 }
 
+
+//Function to check to see if the letter has been guessed
+function checkIfGuessed() { 
+		for (i=0;i<lettersGuessed.length;i++) {
+			if (lettersGuessed.charAt(i) == userGuess) {
+				repeat = true;
+			} else {
+			}
+		}
+	}
+
+
+//Function that updates the progress
+	function updateProgress() {
+		for (i=0;i<userProgress.length;i++) {
+			if (userProgress.charAt(i) == "_") {
+				if (currentWord.charAt(i) == userGuess) {
+					currentProgress = currentProgress + userGuess;
+				} else {
+					currentProgress = currentProgress + "_";
+				}
+			} else {
+				currentProgress = currentProgress + userProgress.charAt(i);
+			}
+		}
+	}	
+
+
+function startAgain() {
+	resetHangman();
+	winCount = 0;
+	playGame();
+	var remove = document.getElementById("you-lose");
+		remove.classList.remove("lose-show");
+	document.getElementById("wrong").innerHTML = "";
+
+}
+
 //Play Game Function
 function playGame() {
 	//Reset variables
@@ -48,42 +86,7 @@ function playGame() {
 	displayWins();
 }
 
-function checkIfGuessed() { 
-		for (i=0;i<lettersGuessed.length;i++) {
-			if (lettersGuessed.charAt(i) == userGuess) {
-				repeat = true;
-			} else {
-			}
-		}
-	}
-
-//Call Play Game when documented loaded
-playGame();
-
-//When a key is pressed
-document.onkeyup = function(event) {
-	//The key is captured as the user's guess
-	userGuess = String.fromCharCode(event.keyCode).toLowerCase();
-
-	//Function to check to see if the letter has been guessed
-	
-
-	//Function that updates the progress
-	function updateProgress() {
-		for (i=0;i<userProgress.length;i++) {
-			if (userProgress.charAt(i) == "_") {
-				if (currentWord.charAt(i) == userGuess) {
-					currentProgress = currentProgress + userGuess;
-				} else {
-					currentProgress = currentProgress + "_";
-				}
-			} else {
-				currentProgress = currentProgress + userProgress.charAt(i);
-			}
-		}
-	}	
-
-	//Function to display letters on screen
+//Function to display letters on screen
 	function displayGuess() {
 		var node = document.createElement("LI");
 		var textnode = document.createTextNode(userGuess.toUpperCase());
@@ -91,7 +94,10 @@ document.onkeyup = function(event) {
 		document.getElementById("wrong").appendChild(node);
 	}
 
-	//Function to add body part to hangman
+//Call Play Game when documented loaded
+playGame();
+
+//Function to add body part to hangman
 	function hangman() {
 		if(guessNumber == 8) {
 			var hang = document.getElementById("head");
@@ -123,7 +129,8 @@ document.onkeyup = function(event) {
 		}
     }
 
-    //Function to Reset Hangman
+
+ //Function to Reset Hangman
     function resetHangman() {
 			
 		var reset = document.getElementById("head");
@@ -155,6 +162,11 @@ document.onkeyup = function(event) {
 	}
 
 
+
+//When a key is pressed
+document.onkeyup = function(event) {
+	//The key is captured as the user's guess
+	userGuess = String.fromCharCode(event.keyCode).toLowerCase();
 
 //Game Play
 	
