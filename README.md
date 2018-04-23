@@ -6,7 +6,7 @@
 
  ## How to Play
 
- Visit this link << >> to get started playing the game
+ Visit this link https://christinebonk.github.io/Word-Guess-Game/ to get started playing the game
 
  ## Contact
 
