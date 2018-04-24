@@ -301,6 +301,17 @@ div.hangman {
 	animation: lose linear 1s;
 }
 
+button {
+	background: black;
+	color: white;
+	transition: 0.3s ease;
+}
+
+button:hover {
+	background: darkred;
+	color: white;
+}
+
 /*Media Queries*/
 
 @media only screen and (max-width: 768px) {
