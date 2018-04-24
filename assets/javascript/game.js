@@ -6,7 +6,7 @@ var userProgress = ""; //progress that display to user
 var currentProgress = ""; //progress during current turn
 var lettersGuessed = ""; //letters that have been guessed
 var winCount = 0; //tracks number of wins
-var userGuess
+var userGuess //stores user guess
 
 var hangmanGame = {
 	//Display Remaining Guesses
@@ -15,7 +15,7 @@ var hangmanGame = {
 	},
 	//Generate Word from Array
 	generateWord: function() {
-		var words = ["psycho", "halloween", "jaws", "seven", "alien", "scream", "frankenstein", "dracula", "zombieland","it", "anaconda", "boogeyman", "carrie", "cloverfield", "misery", "hannibal", "insidious", "orphan", "ouija"];
+		var words = ["psycho", "halloween", "jaws", "seven", "alien", "scream", "frankenstein", "dracula", "zombieland","it", "anaconda", "boogeyman", "carrie", "cloverfield", "misery", "hannibal", "insidious", "orphan", "ouija", "zodiac", "vertigo", "babadook", "conjuring", "ring", "grudge"];
 		currentWord = words[Math.floor(Math.random()*words.length)];
 	},
 	//Displays underscores in place of letters 
@@ -57,32 +57,23 @@ var hangmanGame = {
 	hangman: function() {
 		guessNumber -= 1;
 		if(guessNumber == 8) {
-			var hang = document.getElementById("head");
-    		hang.classList.add("show");
+			document.getElementById("head").classList.add("show");
 		} if(guessNumber == 7) {
-			var hang = document.getElementById("body");
-    		hang.classList.add("show");
+			document.getElementById("body").classList.add("show");
 		} if(guessNumber == 6) {
-			var hang = document.getElementById("right-arm");
-    		hang.classList.add("show");
+			document.getElementById("right-arm").classList.add("show");
 		} if(guessNumber == 5) {
-			var hang = document.getElementById("left-arm");
-    		hang.classList.add("show");
+			document.getElementById("left-arm").classList.add("show");
 		} if(guessNumber == 4) {
-			var hang = document.getElementById("left-leg");
-    		hang.classList.add("show");
+			document.getElementById("left-leg").classList.add("show");
 		} if(guessNumber == 3) {
-			var hang = document.getElementById("right-leg");
-    		hang.classList.add("show");
+			document.getElementById("right-leg").classList.add("show");
 		} if(guessNumber == 2) {
-			var hang = document.getElementById("left-eye");
-    		hang.classList.add("show");
+			document.getElementById("left-eye").classList.add("show");
 		} if(guessNumber == 1) {
-			var hang = document.getElementById("right-eye");
-    		hang.classList.add("show");
+			document.getElementById("right-eye").classList.add("show");
 		} if(guessNumber == 0) {
-			var hang = document.getElementById("mouth");
-    		hang.classList.add("show");
+			document.getElementById("mouth").classList.add("show");
 		}
 		document.getElementById("guess").innerHTML = "<h3>" + guessNumber + "</h3>";
 	},
@@ -92,58 +83,76 @@ var hangmanGame = {
 		reset.classList.remove("show");
 		reset.classList.remove("hangman-lose");
 
-		var reset = document.getElementById("body");
-		reset.classList.remove("show");
-		reset.classList.remove("hangman-lose");
+		var reset1 = document.getElementById("body");
+		reset1.classList.remove("show");
+		reset1.classList.remove("hangman-lose");
 
-		var reset = document.getElementById("left-arm");
-		reset.classList.remove("show");
-		reset.classList.remove("hangman-lose");
+		var reset2 = document.getElementById("left-arm");
+		reset2.classList.remove("show");
+		reset2.classList.remove("hangman-lose");
 
-		var reset = document.getElementById("right-arm");
-		reset.classList.remove("show");
-		reset.classList.remove("hangman-lose");
+		var reset3 = document.getElementById("right-arm");
+		reset3.classList.remove("show");
+		reset3.classList.remove("hangman-lose");
 
-		var reset = document.getElementById("left-leg");
-		reset.classList.remove("show");
-		reset.classList.remove("hangman-lose");
+		var reset4 = document.getElementById("left-leg");
+		reset4.classList.remove("show");
+		reset4.classList.remove("hangman-lose");
 
-		var reset = document.getElementById("right-leg");
-		reset.classList.remove("show");
-		reset.classList.remove("hangman-lose");
+		var reset5 = document.getElementById("right-leg");
+		reset5.classList.remove("show");
+		reset5.classList.remove("hangman-lose");
 
-		var reset = document.getElementById("left-eye");
-		reset.classList.remove("show");
-		reset.classList.remove("hangman-lose");
+		var reset6 = document.getElementById("left-eye");
+		reset6.classList.remove("show");
+		reset6.classList.remove("hangman-lose");
 
-		var reset = document.getElementById("right-eye");
-		reset.classList.remove("show");
-		reset.classList.remove("hangman-lose");
+		var reset7 = document.getElementById("right-eye");
+		reset7.classList.remove("show");
+		reset7.classList.remove("hangman-lose");
 
-		var reset = document.getElementById("mouth");
-		reset.classList.remove("show");
-		reset.classList.remove("hangman-lose-mouth");
+		var reset8 = document.getElementById("mouth");
+		reset8.classList.remove("show");
+		reset8.classList.remove("hangman-lose-mouth");
 
-		var reset = document.getElementById("pole");
-		reset.classList.remove("show");
-		reset.classList.remove("hangman-lose");
+		var reset9 = document.getElementById("pole");
+		reset9.classList.remove("show");
+		reset9.classList.remove("hangman-lose");
 
-		var reset = document.getElementById("pole2");
-		reset.classList.remove("show");
-		reset.classList.remove("hangman-lose");
+		var reset10 = document.getElementById("pole2");
+		reset10.classList.remove("show");
+		reset10.classList.remove("hangman-lose");
 
-		var reset = document.getElementById("stand");
-		reset.classList.remove("show");
-		reset.classList.remove("hangman-lose");
+		var reset11 = document.getElementById("stand");
+		reset11.classList.remove("show");
+		reset11.classList.remove("hangman-lose");
 
-		var reset = document.getElementById("string");
-		reset.classList.remove("show");
-		reset.classList.remove("hangman-lose");
+		var reset12 = document.getElementById("string");
+		reset12.classList.remove("show");
+		reset12.classList.remove("hangman-lose");
 	},
+	//Update after user win
 	userWins: function() {
 		document.getElementById("win").innerHTML = "<h3>You got it: " + currentWord + "!</h3>";
 		winCount = winCount + 1;
 		document.getElementById("wrong").innerHTML = "";
+	},
+	//Show user lose screen
+	userLose: function() {
+		document.getElementById("you-lose").classList.add("lose-show");
+		document.getElementById("pole").classList.add("hangman-lose");
+		document.getElementById("head").classList.add("hangman-lose");
+		document.getElementById("body").classList.add("hangman-lose");
+		document.getElementById("left-arm").classList.add("hangman-lose");
+		document.getElementById("right-arm").classList.add("hangman-lose");
+		document.getElementById("pole2").classList.add("hangman-lose");
+		document.getElementById("right-leg").classList.add("hangman-lose");
+		document.getElementById("left-leg").classList.add("hangman-lose");
+		document.getElementById("left-eye").classList.add("hangman-lose");
+		document.getElementById("right-eye").classList.add("hangman-lose");
+		document.getElementById("stand").classList.add("hangman-lose");
+		document.getElementById("mouth").classList.add("hangman-lose-mouth");
+		document.getElementById("string").classList.add("hangman-lose");
 	}
 };
 
@@ -205,22 +214,9 @@ document.onkeyup = function(event) {
 			playGame(); //Restart the game
 		//If user runs out of guesses
 		} else if (guessNumber == 0) {
-			document.getElementById("you-lose").classList.add("lose-show");
-			document.getElementById("pole").classList.add("hangman-lose");
-			document.getElementById("head").classList.add("hangman-lose");
-			document.getElementById("body").classList.add("hangman-lose");
-			document.getElementById("left-arm").classList.add("hangman-lose");
-			document.getElementById("right-arm").classList.add("hangman-lose");
-			document.getElementById("pole2").classList.add("hangman-lose");
-			document.getElementById("right-leg").classList.add("hangman-lose");
-			document.getElementById("left-leg").classList.add("hangman-lose");
-			document.getElementById("left-eye").classList.add("hangman-lose");
-			document.getElementById("right-eye").classList.add("hangman-lose");
-			document.getElementById("stand").classList.add("hangman-lose");
-			document.getElementById("mouth").classList.add("hangman-lose-mouth");
-			document.getElementById("string").classList.add("hangman-lose");
+			hangmanGame.userLose();
 		} else {
-			//reset repeat value and cnotinue playing
+			//reset repeat value and continue playing
 			var repeat = false; 
 		}
 	}

@@ -26,8 +26,6 @@ h3 {
 }
 
 
-
-
 /*Score*/
 div.score {
 	display: flex;
@@ -47,7 +45,6 @@ div.score-box {
 /*Word*/
 
 
-
 #wrong {
 
 }
@@ -57,11 +54,12 @@ div.score-box {
 	justify-content: center;
 }
 
+/*Fonts*/
+
 h2 {
 	letter-spacing: 20px;
 	font-size: 80px;
 }
-
 
 
 ul {
@@ -302,6 +300,8 @@ div.hangman {
 	display: flex;
 	animation: lose linear 1s;
 }
+
+/*Media Queries*/
 
 @media only screen and (max-width: 768px) {
 	
